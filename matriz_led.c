@@ -264,7 +264,7 @@ void blink_led_rgb() {
     if (absolute_time_diff_us(last_blink_time, now) >= (1000000 / LED_RGB_BLINK_HZ)) {
         last_blink_time = now;
         led_on = !led_on;
-        gpio_put(LED_R, led_on); // Liga/desliga o LED vermelho
+        gpio_put(LED_R, led_on);
     }
 }
 
@@ -275,13 +275,13 @@ void debounce_handler(uint gpio, uint32_t events) {
 
     if (gpio == BUTTON_A) {
         absolute_time_t now = get_absolute_time();
-        if (absolute_time_diff_us(last_time_a, now) > 200000) { // Debounce de 200ms
+        if (absolute_time_diff_us(last_time_a, now) > 200000) { 
             last_time_a = now;
             button_a_pressed = true;
         }
     } else if (gpio == BUTTON_B) {
         absolute_time_t now = get_absolute_time();
-        if (absolute_time_diff_us(last_time_b, now) > 200000) { // Debounce de 200ms
+        if (absolute_time_diff_us(last_time_b, now) > 200000) {
             last_time_b = now;
             button_b_pressed = true;
         }
