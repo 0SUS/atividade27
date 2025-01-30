@@ -13,6 +13,10 @@
 // Pino de saída matriz
 #define OUT_PIN 7
 
+//intensidade final dos leds
+
+#define GAMMA 0.1
+
 // Pinos
 #define LED_R 13
 #define LED_G 11
@@ -66,7 +70,7 @@ void executar_animacao(PIO pio, uint sm, Animacao *anim) {
     for (int frame = 0; frame < anim->num_frames; frame++) {
         for (int i = 0; i < NUM_PIXELS; i++) {
             double intensidade = anim->frames[frame][i];
-            uint32_t valor_led = matrix_rgb(anim->b * intensidade, anim->r * intensidade, anim->g * intensidade);
+            uint32_t valor_led = matrix_rgb(anim->b * intensidade * GAMMA, anim->r * intensidade, anim->g * intensidade * GAMMA);
             pio_sm_put_blocking(pio, sm, valor_led);
         }
 
