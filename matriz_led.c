@@ -64,7 +64,7 @@ void init_matriz_led(PIO pio, uint *offset, uint *sm) {
 
     matriz_led_program_init(pio, *sm, *offset, OUT_PIN);
 }
-
+// looping que exibe o numero na matriz de led
 void executar_animacao(PIO pio, uint sm, Animacao *anim) {
     
     for (int frame = 0; frame < anim->num_frames; frame++) {
@@ -272,7 +272,7 @@ void blink_led_rgb() {
     }
 }
 
-// Rotina de debounce
+// Rotina executada na interrupção
 void debounce_handler(uint gpio, uint32_t events) {
     static absolute_time_t last_time_a = 0;
     static absolute_time_t last_time_b = 0;
