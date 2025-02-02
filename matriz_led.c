@@ -24,7 +24,7 @@
 #define BUTTON_A 5
 #define BUTTON_B 6
 
-#define LED_RGB_BLINK_HZ 5  // Frequência de piscagem do LED RGB (5 Hz)
+#define LED_RGB_BLINK_HZ 5  // Frequência do LED RGB
 
 // Variáveis globais
 volatile int8_t current_number = 0; // Número atual a ser exibido
